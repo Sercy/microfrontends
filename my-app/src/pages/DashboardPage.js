@@ -2,22 +2,12 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { lazy, Suspense } from "react";
 
-import { Copyrights } from "../components/Copyrights";
+import { Footer } from "../components/Footer";
 import { Progress } from "../components/Progress";
 
-import TodoApp from '../apps/TodoApp';
-
-// const TodoAppLazy = lazy(() => import("../apps/TodoApp"));
+const TodoAppLazy = lazy(() => import("../apps/TodoApp"));
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
-    a: {
-      textDecoration: "none",
-    },
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-  },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
@@ -28,21 +18,6 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
   },
 }));
 
@@ -64,10 +39,9 @@ export default function DashboardPage() {
               Welcome to My Dashboard!!!
             </Typography>
             <div className={classes.heroButtons}>
-              <TodoApp />
-              {/* <Suspense fallback={<Progress />}>
+              <Suspense fallback={<Progress />}>
                 <TodoAppLazy />
-              </Suspense> */}
+              </Suspense>
             </div>
           </Container>
         </div>
@@ -75,7 +49,7 @@ export default function DashboardPage() {
           <Grid container spacing={4}></Grid>
         </Container>
       </main>
-      <footer className={classes.footer}>
+      <Footer>
         <Typography variant="h6" align="center" gutterBottom>
           Dashboard Footer
         </Typography>
@@ -87,8 +61,7 @@ export default function DashboardPage() {
         >
           Something here to give the footer a purpose!
         </Typography>
-        <Copyrights />
-      </footer>
+      </Footer>
     </>
   );
 }

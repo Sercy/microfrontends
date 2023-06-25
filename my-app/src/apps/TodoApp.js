@@ -5,7 +5,11 @@ export default function TodoApp() {
   const ref = useRef(null);
 
   useEffect(() => {
-    appMount(ref.current);
+    try {
+      appMount(ref.current);
+    } catch (e) {
+      console.error("TodoApp", e);
+    }
   }, []);
 
   return <div ref={ref} />;

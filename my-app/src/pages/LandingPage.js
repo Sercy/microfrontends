@@ -3,17 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Copyrights } from "../components/Copyrights";
+import { Footer } from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
-    a: {
-      textDecoration: "none",
-    },
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-  },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
@@ -24,21 +16,6 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
   },
 }));
 
@@ -79,12 +56,11 @@ export default function LandingPage() {
           <Grid container spacing={4}></Grid>
         </Container>
       </main>
-      <footer className={classes.footer}>
+      <Footer>
         <Typography variant="h6" align="center" gutterBottom>
           My App Footer
         </Typography>
-        <Copyrights />
-      </footer>
+      </Footer>
     </React.Fragment>
   );
 }
